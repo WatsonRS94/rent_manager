@@ -1,11 +1,13 @@
 class Admin::LoginController < ApplicationController
   skip_before_action :check_logged
+  layout 'login'
   def index
 
   end
   def authenticate
     @user_logged = Admin::User.authenticate(params[:email], params[:password])
     if @user_logged
+      flash[:success] = "Olá #{@user_logged.name}, seja bem-vindo."
       session[:user_id] = @user_logged.id
       redirect_to admin_dashboard_path
     else

@@ -1,18 +1,99 @@
-<h1>Login</h1>
+<% content_for :title do %>
+  <title>Gestão de Alugeis - Entrar</title>
+<% end %>
+<% content_for :styles do %>
+<style>
+    body {
+        background-color: #474D52 !important;
+        background-image: url('<%= image_url 'login/heroOpac.png' %>');
+        position: relative;
+    }
+    body::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+    }
+</style>
+<% end %>
 
+<!-- /.login-logo -->
+<div class="card card-outline card-warning">
+  <div class="card-header text-center">
+    <%= link_to root_path, class: "h1", 'data-bs-toggle': "tooltip", title: "Voltar para o início" do %>
+      <b>Recibos</b>NS
+    <% end %>
+  </div>
+  <div class="card-body">
+    <p class="login-box-msg">Entre para iniciar sua sessão</p>
 
+    <%= form_tag admin_authenticate_path do %>
+      <% if !flash[:error].blank? %>
+        <div class="text-center mb-2">
+          <span class="text-danger"><%= flash[:error] %></span>
+        </div>
+      <% end %>
 
-<%= form_tag admin_authenticate_path do %>
-  <span class="text-danger"><%= flash[:error] if !flash[:error].blank? %></span>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
+      <div class="input-group mb-3">
+        <%= email_field_tag :email, nil, class: "form-control", placeholder: "E-mail", required: true %>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <%= password_field_tag :password, nil, class: "form-control", placeholder: "Senha", required: true %>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <div class="icheck-primary">
+            <input type="checkbox" id="remember">
+            <label for="remember">
+              Lembre-me
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <%= submit_tag "Entrar", :class => "btn btn-primary btn-block" %>
+        </div>
+        <!-- /.col -->
+      </div>
+    <% end %>
+
+    <div class="social-auth-links text-center mt-2 mb-3">
+      <a href="#" class="btn btn-block btn-primary">
+        <i class="fab fa-facebook mr-2"></i> Entrar usando o Facebook
+      </a>
+      <a href="#" class="btn btn-block btn-danger">
+        <i class="fab fa-google-plus mr-2"></i> Entrar usando o Google+
+      </a>
+    </div>
+    <!-- /.social-auth-links -->
+
+    <p class="mb-1">
+      <a href="#">Esqueci minha senha</a>
+    </p>
+    <p class="mb-0">
+      <a href="#" class="text-center">Cadastrar novo usuário</a>
+    </p>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Entrar" %>
-  </div>
+  <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<button type="button" id="loginError" hidden></button>
+<% content_for :scripts do %>
+  <script>
+      <% if !flash[:error].blank? %>
+        toastr.error('Acesso negado.<br> <%= flash[:error] %>')
+      <% end %>
+
+  </script>
 <% end %>

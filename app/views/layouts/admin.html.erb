@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= yield :title %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <%= stylesheet_link_tag 'dashboard/plugins/fontawesome-free/css/all.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dashboard/css/adminlte.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dashboard/plugins/toastr/toastr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :styles %>
+  </head>
+
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <!-- Preloader -->
+      <div class="preloader flex-column justify-content-center align-items-center">
+        <%= image_tag "RALogo.png", class: "animation__shake", alt: "Gestão de Alugueis - RecibosNS", height: "60", width: "60" %>
+      </div>
+
+      <main class="content-wrapper">
+        <%= render 'layouts/partials/admin_navbar' %>
+        <%= render 'layouts/partials/admin_sidebar' %>
+        <%= yield %>
+      </main>
+      <%= render 'layouts/partials/admin_footer' %>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'dashboard/plugins/jquery/jquery.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'dashboard/js/adminlte.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'dashboard/plugins/toastr/toastr.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= yield :scripts %>
+
+  </body>
+</html>

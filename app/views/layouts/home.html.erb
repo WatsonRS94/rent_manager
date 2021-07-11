@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= yield :title %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Playfair+Display:400,700,900 " rel="stylesheet">
+    <%= stylesheet_link_tag 'home/fonts/icomoon/style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/jquery-ui.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/owl.carousel.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/owl.theme.default.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/jquery.fancybox.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/bootstrap-datepicker.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/fonts/flaticon/font/flaticon.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/aos.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home/css/style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :styles %>
+  </head>
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <main class="site-wrap">
+      <%= render 'layouts/partials/home_navbar' %>
+      <%= yield %>
+      <%= render 'layouts/partials/home_footer' %>
+    </main>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery-3.3.1.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery-migrate-3.0.1.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery-ui.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/popper.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/owl.carousel.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery.stellar.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery.countdown.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/bootstrap-datepicker.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/aos.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery.fancybox.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/jquery.sticky.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home/js/main.js', 'data-turbolinks-track': 'reload' %>
+    <% yield :scripts %>
+  </body>
+</html>

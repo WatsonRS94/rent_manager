@@ -4,8 +4,8 @@ class Admin::User < ApplicationRecord
   before_save :crypt_password
 
   def crypt_password
-    if ( !self.password.blank? and !self.password.nil?) and (self.password.length < 40 && self.password.length > 0)
-      write_attribute("password", self.class.sha1(self.password))
+    if ( !password.blank? && !password.nil?) && (password.length < 40 && password.length.positive?)
+      write_attribute('password', self.class.sha1(password))
     end
   end
 
@@ -13,10 +13,12 @@ class Admin::User < ApplicationRecord
     user = Admin::User.find_by_email(email)
     return nil unless user
     return nil if user.password != sha1(password_digest)
+
     user
   end
+
   protected
   def self.sha1(password_digest)
-    Digest::SHA1.hexdigest("bast cake"+password_digest)
+    Digest::SHA1.hexdigest("alugar#{password_digest}")
   end
 end
