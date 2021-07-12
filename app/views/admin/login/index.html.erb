@@ -28,27 +28,39 @@
   <div class="card-body">
     <p class="login-box-msg">Entre para iniciar sua sessão</p>
 
-    <%= form_tag admin_authenticate_path do %>
+    <%= form_tag admin_authenticate_path, class: "needs-validation", novalidate: true do %>
       <% if !flash[:error].blank? %>
         <div class="text-center mb-2">
           <span class="text-danger"><%= flash[:error] %></span>
         </div>
       <% end %>
 
-      <div class="input-group mb-3">
+      <div class="form-group input-group mb-3">
         <%= email_field_tag :email, nil, class: "form-control", placeholder: "E-mail", required: true %>
         <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-envelope"></span>
           </div>
         </div>
+        <div class="valid-tooltip">
+          Parece tudo certo!
+        </div>
+        <div class="invalid-tooltip">
+          Preencha o campo com um E-mail válido.
+        </div>
       </div>
-      <div class="input-group mb-3">
+      <div class="form-group input-group mb-3">
         <%= password_field_tag :password, nil, class: "form-control", placeholder: "Senha", required: true %>
         <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-lock"></span>
           </div>
+        </div>
+        <div class="valid-tooltip">
+          Parece tudo certo!
+        </div>
+        <div class="invalid-tooltip">
+          Preencha o campo Senha.
         </div>
       </div>
       <div class="row">
@@ -91,9 +103,31 @@
 <button type="button" id="loginError" hidden></button>
 <% content_for :scripts do %>
   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                      if (form.checkValidity() === false) {
+                          event.preventDefault();
+                          event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                  }, false);
+              });
+          }, false);
+      })();
+
+      $(function () {
+          $('[data-bs-toggle="tooltip"]').tooltip()
+      })
+
       <% if !flash[:error].blank? %>
         toastr.error('Acesso negado.<br> <%= flash[:error] %>')
       <% end %>
-
   </script>
 <% end %>

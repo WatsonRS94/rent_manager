@@ -1,3 +1,9 @@
+<% content_for :title do %>
+  <title>Gestão de Alugeis - Dashboard</title>
+<% end %>
+<% content_for :styles do %>
+<% end %>
+
 <h1>Admin::Dashboard#index</h1>
 <p>Find me in app/views/admin/dashboard/index.html.erb</p>
 <%= link_to "Sair", admin_logout_path, method: :delete %>
@@ -8,4 +14,7 @@
       toastr.success('Entrando.<br> <%= flash[:success] %>')
       <% end %>
   </script>
+<% end %>
+
+<% content_for :scripts do %>
 <% end %>
