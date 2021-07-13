@@ -11,12 +11,14 @@ class Admin::LoginController < ApplicationController
       session[:user_id] = @user_logged.id
       redirect_to admin_dashboard_path
     else
+      @user = Admin::User.where(params[:userid])
       flash[:error] = "Usuários ou Senha inválida."
       redirect_to admin_path
     end
   end
 
   def logout
+    flash[:logout] = "Até a próxima #{params[:username]}, volte sempre."
     session.destroy
     redirect_to root_path
   end

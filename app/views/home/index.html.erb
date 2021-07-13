@@ -84,4 +84,9 @@
 </section>
 
 <% content_for :scripts do %>
+  <script type="text/javascript" charset="utf-8">
+      <% unless flash[:logout].blank? %>
+        toastr.info('Sessão encerrada.<br> <%= flash[:logout] %>')
+      <% end %>
+  </script>
 <% end %>

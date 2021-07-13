@@ -20,6 +20,7 @@
     <%= stylesheet_link_tag 'home/fonts/flaticon/font/flaticon.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'home/css/aos.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'home/css/style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dashboard/plugins/toastr/toastr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= yield :styles %>
   </head>
 
@@ -44,6 +45,7 @@
     <%= javascript_include_tag 'home/js/jquery.fancybox.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'home/js/jquery.sticky.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'home/js/main.js', 'data-turbolinks-track': 'reload' %>
-    <% yield :scripts %>
+    <%= javascript_include_tag 'dashboard/plugins/toastr/toastr.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= yield :scripts %>
   </body>
 </html>
