@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <title>Gestão de Alugeis - Início</title>
+  <title>NishAlugeis - Início</title>
 <% end %>
 <% content_for :styles do %>
 <% end %>
@@ -86,7 +86,7 @@
 <% content_for :scripts do %>
   <script type="text/javascript" charset="utf-8">
       <% unless flash[:logout].blank? %>
-        toastr.info('Sessão encerrada.<br> <%= flash[:logout] %>')
+        toastr.warning('Sessão encerrada.<br> <%= flash[:logout] %>')
       <% end %>
   </script>
 <% end %>

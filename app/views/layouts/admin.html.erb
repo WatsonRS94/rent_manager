@@ -21,12 +21,13 @@
     <div class="wrapper">
       <!-- Preloader -->
       <div class="preloader flex-column justify-content-center align-items-center">
-        <%= image_tag "RALogo.png", class: "animation__shake", alt: "Gestão de Alugueis - RecibosNS", height: "60", width: "60" %>
+        <%= image_tag "admin/NALogo.png", class: "animation__shake", alt: "Gestão de Alugueis - RecibosNS", height: "60", width: "60" %>
       </div>
 
+      <%= render 'layouts/partials/admin_navbar' %>
+      <%= render 'layouts/partials/admin_sidebar' %>
+
       <main class="content-wrapper">
-        <%= render 'layouts/partials/admin_navbar' %>
-        <%= render 'layouts/partials/admin_sidebar' %>
         <%= yield %>
       </main>
       <%= render 'layouts/partials/admin_footer' %>
@@ -42,6 +43,11 @@
     <%= javascript_include_tag 'dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'dashboard/js/adminlte.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'dashboard/plugins/toastr/toastr.min.js', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     <%= yield :scripts %>
 
   </body>

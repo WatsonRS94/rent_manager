@@ -14,9 +14,10 @@
     <div class="row align-items-center">
 
       <div class="col-6 col-xl-2">
-        <h1 class="mb-0 site-logo m-0 p-0">
-          <%= link_to root_path do %>
-            Recibos NS
+        <h1 class="container-fluid mb-0 site-logo m-0 p-0">
+          <%= link_to root_path, class: "navbar-brand", style: "font-size: 23px !important" do %>
+            <%= image_tag "home/NAHomeLogo.png", class: "d-inline-block align-text-top", style: "opacity: .8; height: 25px" %>
+            <span>NishAlugueis</span>
           <% end %>
         </h1>
       </div>
