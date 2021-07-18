@@ -29,6 +29,9 @@ dashboard/css/adminlte.min.css
 dashboard/plugins/fontawesome-free/css/all.min.css
 dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css
 dashboard/plugins/toastr/toastr.min.css
+dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css
+dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css
+dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css
 )
 
 # Load Scripts
@@ -51,4 +54,16 @@ dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js
 dashboard/plugins/jquery/jquery.min.js
 dashboard/js/adminlte.min.js
 dashboard/plugins/toastr/toastr.min.js
+dashboard/plugins/datatables/jquery.dataTables.min.js
+dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js
+dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js
+dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js
+dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js
+dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js
+dashboard/plugins/jszip/jszip.min.js
+dashboard/plugins/pdfmake/vfs_fonts.js
+dashboard/plugins/pdfmake/pdfmake.min.js
+dashboard/plugins/datatables-buttons/js/buttons.html5.min.js
+dashboard/plugins/datatables-buttons/js/buttons.print.min.js
+dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js
 )

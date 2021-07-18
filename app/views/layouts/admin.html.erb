@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag 'dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'dashboard/css/adminlte.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'dashboard/plugins/toastr/toastr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :plugins_styles %>
     <%= yield :styles %>
   </head>
 
@@ -43,10 +44,11 @@
     <%= javascript_include_tag 'dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'dashboard/js/adminlte.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'dashboard/plugins/toastr/toastr.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= yield :plugins_scripts %>
     <script type="text/javascript" charset="utf-8">
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
     </script>
     <%= yield :scripts %>
 

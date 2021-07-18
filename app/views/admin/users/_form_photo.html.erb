@@ -11,34 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :email %>
+    <%= form.hidden_field :password %>
   <div class="field">
     <%= form.label :photo %>
     <%= form.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
   </div>
 
   <div class="actions">

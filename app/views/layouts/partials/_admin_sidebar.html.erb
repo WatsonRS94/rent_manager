@@ -12,7 +12,7 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         <%= link_to "/admin/users/#{@user_logged.id}/edit_photo" do %>
-          <%# image_tag @user_logged.photo, class: "img-circle elevation-2", alt: "Perfil" %>
+          <%= image_tag @user_logged.photo, class: "img-circle elevation-2", alt: "Perfil" %>
       <% end %>
       </div>
       <div class="info">
