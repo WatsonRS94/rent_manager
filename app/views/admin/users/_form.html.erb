@@ -1,47 +1,54 @@
-<%= form_with(model: admin_user, local: true) do |form| %>
-  <% if admin_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin_user.errors.count, "error") %> prohibited this admin_user from being saved:</h2>
+<%= form_with(model: @user, local: true, data: { remote: true }) do |form| %>
+  <div class="modal-header">
+    <h4 class="modal-title"><%= @user.new_record? ? "Adicionar" : "Editar" %> Usuário</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <%= error_message_for @user %>
 
-      <ul>
-      <% admin_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="container">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <%= form.label :name, "Nome:", class: "form-label" %>
+            <%= form.text_field :name, class: "form-control #{@user.errors[:name].any? ? 'is-invalid' : ''}", placeholder: "Insira o Nome" %>
+          </div>
+          <div class="col-sm-6">
+            <%= form.label :email, "E-mail:", class: "form-label" %>
+            <%= form.email_field :email, class: "form-control #{@user.errors[:email].any? ? 'is-invalid' : ''}", placeholder: "Insira o E-mail" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <%= form.label :password, "Senha:", class: "form-label" %>
+            <%= form.password_field :password, class: "form-control #{@user.errors[:password].any? ? 'is-invalid' : ''}", placeholder: "Insira a Senha" %>
+          </div>
+          <div class="col-sm-3">
+            <div class="custom-control custom-checkbox mt-4 pt-3">
+              <%= form.check_box :admin, class: "custom-control-input" %>
+              <%= form.label :admin, "Administrador?", class: "custom-control-label" %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="custom-control custom-checkbox mt-4 pt-3">
+              <%= form.check_box :active, class: "custom-control-input" %>
+              <%= form.label :active, "Ativo?", class: "custom-control-label" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="modal-footer justify-content-end">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+    <%= form.button data: {disable_with: "Aguarde...."}, class: "btn btn-success" do %>
+      Salvar
+      <i class="fas fa-save"></i>
+    <% end %>
   </div>
 <% end %>

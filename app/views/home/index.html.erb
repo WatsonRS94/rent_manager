@@ -86,7 +86,7 @@
 <% content_for :scripts do %>
   <script type="text/javascript" charset="utf-8">
       <% unless flash[:logout].blank? %>
-        toastr.warning('Sessão encerrada.<br> <%= flash[:logout] %>')
+        toastr.warning("<%= flash[:logout] %>", "Sessão encerrada.")
       <% end %>
   </script>
 <% end %>

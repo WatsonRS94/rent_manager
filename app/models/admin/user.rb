@@ -3,9 +3,19 @@ class Admin::User < ApplicationRecord
   after_commit :add_default_photo, on: [:create, :update]
   #Relacionamentos
   has_one_attached :photo
+  #Traduçôes
+  HUMANIZED_ATTRIBUTES = {
+    :name => "Nome",
+    :email => "E-mail",
+    :password => "Senha"
+  }
+  def self.human_attribute_name(attr, options = {}) # 'options' wasn't available in Rails 3, and prior versions.
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
   #Validacoes
-  validates :name, :email, :password, presence: true
-  validates :email, uniqueness: true
+  validates :name, presence: true
+  validates :password, presence: true, on: :create
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   #Scopes
   #Callbacks
   private def add_default_photo

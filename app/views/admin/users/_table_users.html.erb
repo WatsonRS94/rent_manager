@@ -1,0 +1,40 @@
+<table id="users" class="table table-hover tale-striped">
+  <thead>
+  <tr>
+    <th>Foto</th>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Ativo</th>
+    <th>Admin</th>
+    <th class="text-center">Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr class="lead" id="<%= user.id %>">
+      <td><%= image_tag user.photo, width: "40", height: "40", class: "rounded-circle" %></td>
+      <td class="pt-3"><%= user.name %></td>
+      <td class="pt-3"><%= user.email %></td>
+      <td class="pt-3"><%= user.active ? "Sim" : "Não" %></td>
+      <td class="pt-3"><%= user.admin ? "Sim" : "Não" %></td>
+      <td class="pt-3 text-center">
+        <div class="btn-group btn-group-sm">
+          <%= link_to edit_admin_user_path(user), remote: true, class: "btn btn-sm btn-dark tip", title: "Editar" do %>
+            <i class="fas fa-user-edit"></i>
+          <% end %>
+          <%= link_to edit_photo_admin_user_path(user), remote: true, class: "btn btn-sm btn-dark tip", title: "Visualizar" do %>
+            <i class="fas fa-id-card"></i>
+          <% end %>
+          <%= link_to user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-dark tip", 'data-toggle':"tooltip", title: "Excluir" do %>
+            <i class="fas fa-user-minus"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+<div class="d-flex justify-content-end">
+  <%= js_will_paginate @users %>
+</div>

@@ -1,0 +1,10 @@
+<% if @user.errors.blank? %>
+$(".close").click();
+$('.modal-content div').remove();
+toastr.success("<%= flash[:mensagem] %>", "Usuário atualizado com sucesso.")
+$("#users tr#<%= params[:id] %> td").remove();
+$("#users tr#<%= params[:id] %>").append("<%= escape_javascript(render 'tr') %>");
+$("#users tr#<%= params[:id] %> td").delay(100).fadeOut().fadeIn('slow')
+<% else %>
+$('.modal-content').html("<%= escape_javascript(render 'form') %>");
+<% end %>

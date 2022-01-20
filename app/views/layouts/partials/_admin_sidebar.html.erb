@@ -34,7 +34,7 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-flat" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
@@ -55,7 +55,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<%= admin_users_path %>" class="nav-link">
+              <a href="<%= admin_users_path %>" class="nav-link" data-remote="true" onclick="$('')">
                 <i class="fas fa-users nav-icon"></i>
                 <p>Usuários</p>
               </a>
@@ -82,8 +82,6 @@
         <%= link_to "Sair", admin_logout_path(username: @user_logged.name), method: :delete, class: "dropdown-item bg-dark" %>
       </div>
     </div>
-
-    <a href="#" class="btn btn-secondary hide-on-collapse pos-right">Ajuda</a>
   </div>
   <!-- /.sidebar-custom -->
   <!-- /.sidebar -->

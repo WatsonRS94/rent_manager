@@ -7,7 +7,7 @@ class Admin::LoginController < ApplicationController
   def authenticate
     @user_logged = Admin::User.authenticate(params[:email], params[:password])
     if @user_logged
-      flash[:success] = "Olá #{@user_logged.name}, seja bem-vindo."
+      flash[:login] = "Olá #{@user_logged.name}, seja bem-vindo."
       session[:user_id] = @user_logged.id
       redirect_to admin_dashboard_path
     else

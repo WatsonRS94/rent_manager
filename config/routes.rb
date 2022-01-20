@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
-    resources :users do
+    resources :users, except: :show do
       member do
-        get :edit_photo; post :edit_photo;
+        get :edit_photo; post :edit_photo
+      end
+      collection do
+        get :search
       end
     end
     post '/authenticate', to: 'login#authenticate'

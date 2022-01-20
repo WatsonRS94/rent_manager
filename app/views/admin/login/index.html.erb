@@ -127,7 +127,7 @@
       })
 
       <% unless flash[:error].blank? %>
-        toastr.error('Acesso negado.<br> <%= flash[:error] %>')
+        toastr.error("<%= flash[:error] %>", "Acesso negado.")
       <% end %>
   </script>
 <% end %>

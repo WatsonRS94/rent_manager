@@ -1,0 +1,9 @@
+<% if @user.errors.blank? %>
+$(".close").click();
+$('.modal-content div').remove();
+toastr.success("Usuário adicionado com sucesso.", "<%= flash[:mensagem] %>")
+$("#users tbody tr:first").before("<%= escape_javascript(render 'tr_new') %>");
+$("#users tr#<%= @user.id %> td").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+<% else %>
+$('.modal-content').html("<%= escape_javascript(render 'form') %>");
+<% end %>

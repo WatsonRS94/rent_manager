@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <title>NishAlugeis - Dashboard</title>
+  <title>NishAlugeis - Painel de Controle</title>
 <% end %>
 <% content_for :styles do %>
 <% end %>
@@ -108,8 +108,8 @@
 <!-- /.content -->
 <% content_for :scripts do %>
   <script type="text/javascript" charset="utf-8">
-      <% unless flash[:success].blank? %>
-        toastr.success('Entrando.<br> <%= flash[:success] %>')
+      <% unless flash[:login].blank? %>
+        toastr.success("<%= flash[:login] %>", 'Entrando.')
       <% end %>
   </script>
 <% end %>
